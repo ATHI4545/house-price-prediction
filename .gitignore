@@ -1,0 +1,48 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+backend/venv/
+backend/env/
+backend/.venv/
+
+# Environment variables
+.env
+.env.local
+.env.production.local
+.env.development.local
+
+# Backend model (train on server)
+backend/model.pkl
+
+# Kaggle data (too large for git)
+backend/train.csv
+backend/test.csv
+backend/*.csv
