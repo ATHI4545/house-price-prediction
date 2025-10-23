@@ -28,9 +28,21 @@ CORS(app, resources={
 MODEL_PATH = 'model.pkl'
 model = None
 
+# Try to train model if it doesn't exist
+if not os.path.exists(MODEL_PATH):
+    print("⚠️  model.pkl not found. Attempting to train model...")
+    try:
+        import train_model
+        train_model.main()
+        print("✅ Model trained successfully!")
+    except Exception as e:
+        print(f"⚠️  Could not train model: {str(e)}")
+        print("Using fallback formula for predictions")
+
 if os.path.exists(MODEL_PATH):
     with open(MODEL_PATH, 'rb') as f:
         model = pickle.load(f)
+        print("✅ Model loaded successfully!")
 
 @app.route('/api/health', methods=['GET'])
 def health_check():
